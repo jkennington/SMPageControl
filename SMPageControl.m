@@ -96,6 +96,8 @@ static SMPageControlStyleDefaults _defaultStyleForSystemVersion;
 	self.accessibilityTraits = UIAccessibilityTraitUpdatesFrequently;
 	self.accessibilityPageControl = [[UIPageControl alloc] init];
 	self.contentMode = UIViewContentModeRedraw;
+    
+    self.progressMode = NO;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -153,7 +155,7 @@ static SMPageControlStyleDefaults _defaultStyleForSystemVersion;
 	for (NSInteger i = 0; i < _numberOfPages; i++) {
 		NSNumber *indexNumber = @(i);
 		
-		if (i == _displayedPage) {
+		if (i == _displayedPage || (self.progressMode && i < _displayedPage)) {
 			fillColor = _currentPageIndicatorTintColor ? _currentPageIndicatorTintColor : [UIColor whiteColor];
 			image = _currentPageImages[indexNumber];
 			if (nil == image) {

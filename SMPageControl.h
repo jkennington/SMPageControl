@@ -27,6 +27,8 @@ typedef NS_ENUM(NSUInteger, SMPageControlTapBehavior) {
 
 @interface SMPageControl : UIControl
 
+@property (nonatomic) BOOL progressMode; // Property added to have indicators before the current page indicator look the same as the current page indicator
+
 @property (nonatomic) NSInteger numberOfPages;
 @property (nonatomic) NSInteger currentPage;
 @property (nonatomic) CGFloat indicatorMargin							UI_APPEARANCE_SELECTOR; // deafult is 10
